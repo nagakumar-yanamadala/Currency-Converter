@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Currency Converter</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    .dropdown-list::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .dropdown-list::-webkit-scrollbar-thumb {
+      background-color: #ccc;
+      border-radius: 4px;
+    }
+    
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    
+    input[type=number] {
+      appearance: textfield;
+      -moz-appearance: textfield;
+    }
+  </style>
+</head>
+
+<body class="w-[100vw] h-[100vh] min-h-screen flex justify-center items-center bg-black text-white">
+  <div class="min-w-[100vw] min-h-[100vh] sm:min-w-[60vw] sm:min-h-[70vh] bg-zinc-900 border-2 border-zinc-700 rounded-lg p-6 shadow-lg ">
+
+    <h1 class="text-center text-2xl font-bold mb-6">Currency Converter</h1>
+    <div>
+      <label for="amount" class="block mb-1 text-sm font-medium ">Amount</label>
+      <input type="number" step="0.00001" id="amount" value="1"
+        class="w-full px-4 py-2 border border-gray-400 rounded-md text-black placeholder-gray-500 focus:outline-none   my-[1em]"
+        placeholder="Enter amount" />
+    </div>
+    <form id="form" class="flex flex-col gap-6">
+      
+      <div class="flex flex-col sm:flex-row items-center gap-6 my-[3em]">
+        
+        <div class="w-full ">
+          <label class="block mb-1 text-sm font-medium">From</label>
+          <div class="relative text-black">
+            <div id="customDropdownFrom"
+              class="bg-white px-4 py-2 border rounded-md cursor-pointer w-full flex items-center justify-between">
+              <span>Select Currency</span>
+            </div>
+            <ul id="dropdownListFrom"
+              class="dropdown-list absolute hidden z-10 bg-white text-black border w-full max-h-64 overflow-auto shadow-lg rounded-md mt-1">
+            </ul>
+          </div>
+        </div>
+      
+        
+        <div class="sm:self-end sm:mb-[10px] sm:flex text-white text-2xl">
+          <i class="fas fa-arrows-rotate"></i>
+        </div>
+      
+        
+        <div class="w-full">
+          <label class="block mb-1 text-sm font-medium">To</label>
+          <div class="relative text-black">
+            <div id="customDropdownTo"
+              class="bg-white px-4 py-2 border rounded-md cursor-pointer w-full flex items-center justify-between">
+              <span>Select Currency</span>
+            </div>
+            <ul id="dropdownListTo"
+              class="dropdown-list absolute hidden z-10 bg-white text-black border w-full max-h-64 overflow-auto shadow-lg rounded-md mt-1">
+            </ul>
+          </div>
+        </div>
+      </div>
+            
+      <button type="submit"
+        class="bg-white text-black hover:bg-gray-300 font-semibold py-2 px-4 rounded border border-white transition self-center my-[1em]">
+        Convert
+      </button>
+    </form>
+    
+
+    <p id="result" class="mt-6 text-center text-lg font-medium h-[40px]"></p>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
